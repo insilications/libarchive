@@ -1,4 +1,1 @@
---without-libxml2
---without-expat
---without-lz4
---without-nettle
+--with-libxml2 --with-expat --with-lz4 --with-nettle --with-lzo2 --with-openssl --enable-shared --enable-static

@@ -32,14 +32,6 @@ Configure miss: localcharset.h presence
 Configure miss: localcharset.h
 Configure miss: locale_charset
 Configure miss: locale_charset in -lcharset
-Configure miss: LIBXML2_PC
-Configure miss: xmlInitParser in -lxml2
-Configure miss: libxml/xmlreader.h usability
-Configure miss: libxml/xmlreader.h presence
-Configure miss: libxml/xmlreader.h
-Configure miss: libxml/xmlwriter.h usability
-Configure miss: libxml/xmlwriter.h presence
-Configure miss: libxml/xmlwriter.h
 Configure miss: struct statfs.f_namemax
 Configure miss: struct statvfs.f_iosize
 Configure miss: struct stat.st_birthtime
@@ -143,14 +135,6 @@ Configure miss: localcharset.h presence
 Configure miss: localcharset.h
 Configure miss: locale_charset
 Configure miss: locale_charset in -lcharset
-Configure miss: LIBXML2_PC
-Configure miss: xmlInitParser in -lxml2
-Configure miss: libxml/xmlreader.h usability
-Configure miss: libxml/xmlreader.h presence
-Configure miss: libxml/xmlreader.h
-Configure miss: libxml/xmlwriter.h usability
-Configure miss: libxml/xmlwriter.h presence
-Configure miss: libxml/xmlwriter.h
 Configure miss: struct statfs.f_namemax
 Configure miss: struct statvfs.f_iosize
 Configure miss: struct stat.st_birthtime
