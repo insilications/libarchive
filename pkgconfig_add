@@ -8,3 +8,8 @@ hogweed
 nettle
 libxml-2.0
 lrzip
+expat
+bzip2
+32bzip2
+libacl
+32libacl

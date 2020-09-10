@@ -3,9 +3,13 @@
 # desirable. One name per line, no whitespace.
 #
 acl-dev
+acl-dev32
+acl-staticdev
+acl-staticdev32
 attr-dev
 buildreq-cmake
 bzip2-dev
+bzip2-dev32
 bzip2-staticdev
 e2fsprogs-dev
 expat-dev
