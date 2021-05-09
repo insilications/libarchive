@@ -42,7 +42,6 @@ gdb
 gdb-dev
 gettext-bin
 git
-glibc-abi
 glibc-bench
 glibc-dev
 glibc-staticdev
@@ -74,8 +73,6 @@ lzo-staticdev32
 m4
 nettle-dev
 nettle-dev32
-nettle-staticdev
-nettle-staticdev32
 openssl-dev
 openssl-dev32
 openssl-staticdev
