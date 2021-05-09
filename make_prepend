@@ -7,3 +7,5 @@ find . -type f -name 'Makefile' -exec sed -i 's:-llz4\b:-Wl,--whole-archive,--as
 find . -type f -name 'Makefile' -exec sed -i 's:-llzo2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/liblzo2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lxml2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libxml2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lexpat\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libexpat.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lcrypto\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libcrypto.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lssl\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libssl.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;

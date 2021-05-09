@@ -185,7 +185,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1620523295
+export SOURCE_DATE_EPOCH=1620527740
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -263,6 +263,8 @@ find . -type f -name 'Makefile' -exec sed -i 's:-llz4\b:-Wl,--whole-archive,--as
 find . -type f -name 'Makefile' -exec sed -i 's:-llzo2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/liblzo2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lxml2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libxml2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lexpat\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libexpat.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lcrypto\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libcrypto.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lssl\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libssl.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 ## make_prepend end
 make  %{?_smp_mflags}  V=1 VERBOSE=1
 
@@ -301,12 +303,14 @@ find . -type f -name 'Makefile' -exec sed -i 's:-llz4\b:-Wl,--whole-archive,--as
 find . -type f -name 'Makefile' -exec sed -i 's:-llzo2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/liblzo2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lxml2\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libxml2.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lexpat\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libexpat.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lcrypto\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libcrypto.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
+find . -type f -name 'Makefile' -exec sed -i 's:-lssl\b:-Wl,--whole-archive,--as-needed,/usr/lib64/libssl.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 ## make_prepend end
 make  %{?_smp_mflags}  V=1 VERBOSE=1
 
 
 %install
-export SOURCE_DATE_EPOCH=1620523295
+export SOURCE_DATE_EPOCH=1620527740
 rm -rf %{buildroot}
 %make_install
 
