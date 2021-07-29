@@ -1,1 +1,10 @@
 # This file contains recursive sources that require this package
+appstream-glib-dev
+fwupd-dev
+gnome-autoar-dev
+libarchive-dev
+libarchive-staticdev
+rhythmbox-dev
+tesseract-dev
+totem-dev
+totem-pl-parser-dev
