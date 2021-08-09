@@ -2160,10 +2160,12 @@ libarchive.so.13:HUF_compress
 libarchive.so.13:HUF_compress1X
 libarchive.so.13:HUF_compress1X_repeat
 libarchive.so.13:HUF_compress1X_usingCTable
+libarchive.so.13:HUF_compress1X_usingCTable_bmi2
 libarchive.so.13:HUF_compress1X_wksp
 libarchive.so.13:HUF_compress2
 libarchive.so.13:HUF_compress4X_repeat
 libarchive.so.13:HUF_compress4X_usingCTable
+libarchive.so.13:HUF_compress4X_usingCTable_bmi2
 libarchive.so.13:HUF_compress4X_wksp
 libarchive.so.13:HUF_compressBound
 libarchive.so.13:HUF_decompress
@@ -2196,7 +2198,7 @@ libarchive.so.13:HUF_decompress4X_usingDTable
 libarchive.so.13:HUF_decompress4X_usingDTable_bmi2
 libarchive.so.13:HUF_estimateCompressedSize
 libarchive.so.13:HUF_getErrorName
-libarchive.so.13:HUF_getNbBits
+libarchive.so.13:HUF_getNbBitsFromCTable
 libarchive.so.13:HUF_isError
 libarchive.so.13:HUF_optimalTableLog
 libarchive.so.13:HUF_readCTable
@@ -4471,6 +4473,7 @@ libarchive.so.13:ZSTD_insertBlock
 libarchive.so.13:ZSTD_invalidateRepCodes
 libarchive.so.13:ZSTD_isError
 libarchive.so.13:ZSTD_isFrame
+libarchive.so.13:ZSTD_isSkippableFrame
 libarchive.so.13:ZSTD_ldm_adjustParameters
 libarchive.so.13:ZSTD_ldm_blockCompress
 libarchive.so.13:ZSTD_ldm_fillHashTable
@@ -4487,6 +4490,7 @@ libarchive.so.13:ZSTD_minCLevel
 libarchive.so.13:ZSTD_nextInputType
 libarchive.so.13:ZSTD_nextSrcSizeToDecompress
 libarchive.so.13:ZSTD_noCompressLiterals
+libarchive.so.13:ZSTD_readSkippableFrame
 libarchive.so.13:ZSTD_referenceExternalSequences
 libarchive.so.13:ZSTD_resetCStream
 libarchive.so.13:ZSTD_resetDStream
