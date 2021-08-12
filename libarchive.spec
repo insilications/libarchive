@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : libarchive
 Version  : 3.5.1
-Release  : 64
+Release  : 301
 URL      : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.1.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.1.tar.gz
 Summary  : A library for handling streaming archive formats
@@ -185,7 +185,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1628485757
+export SOURCE_DATE_EPOCH=1628734588
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -305,7 +305,7 @@ find . -type f -name 'Makefile' -exec sed -i 's:-lexpat\b:-Wl,--whole-archive,/u
 find . -type f -name 'Makefile' -exec sed -i 's:-lcrypto\b:-Wl,--whole-archive,/usr/lib64/libcrypto.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lssl\b:-Wl,--whole-archive,/usr/lib64/libssl.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 ## make_prepend end
-make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
+make  %{?_smp_mflags}   V=1 VERBOSE=1 V=1 VERBOSE=1
 
 make VERBOSE=1 V=1 -j1 check || :
 make clean || :
@@ -349,12 +349,12 @@ find . -type f -name 'Makefile' -exec sed -i 's:-lexpat\b:-Wl,--whole-archive,/u
 find . -type f -name 'Makefile' -exec sed -i 's:-lcrypto\b:-Wl,--whole-archive,/usr/lib64/libcrypto.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 find . -type f -name 'Makefile' -exec sed -i 's:-lssl\b:-Wl,--whole-archive,/usr/lib64/libssl.a,-lpthread,-ldl,-lm,-lmvec,--no-whole-archive:g' {} \;
 ## make_prepend end
-make  %{?_smp_mflags}  V=1 VERBOSE=1  V=1 VERBOSE=1
+make  %{?_smp_mflags}   V=1 VERBOSE=1 V=1 VERBOSE=1
 fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1628485757
+export SOURCE_DATE_EPOCH=1628734588
 rm -rf %{buildroot}
 %make_install
 ## install_append content
