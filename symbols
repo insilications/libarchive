@@ -6542,6 +6542,7 @@ libarchive.so.13:x509_init_sig_info
 libarchive.so.13:x509_likely_issued
 libarchive.so.13:x509_set1_time
 libarchive.so.13:x509_signing_allowed
+libarchive.so.13:x509v3_add_len_value_uchar
 libarchive.so.13:x86_check_features
 libarchive.so.13:xlinkGetDefaultDetect
 libarchive.so.13:xlinkGetDefaultHandler

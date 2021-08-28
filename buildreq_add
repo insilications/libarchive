@@ -62,8 +62,7 @@ libunwind
 libunwind-dev
 libxml2-dev
 libxml2-staticdev
-lrzip-dev
-lrzip-staticdev
+lrzip
 lz4-dev
 lz4-staticdev
 lzo-dev
