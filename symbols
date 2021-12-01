@@ -2093,7 +2093,6 @@ libarchive.so.13:EXTENDED_KEY_USAGE_new
 libarchive.so.13:FIPS_mode
 libarchive.so.13:FIPS_mode_set
 libarchive.so.13:FSE_NCountWriteBound
-libarchive.so.13:FSE_buildCTable
 libarchive.so.13:FSE_buildCTable_raw
 libarchive.so.13:FSE_buildCTable_rle
 libarchive.so.13:FSE_buildCTable_wksp
@@ -2186,10 +2185,12 @@ libarchive.so.13:HUF_decompress4X1
 libarchive.so.13:HUF_decompress4X1_DCtx
 libarchive.so.13:HUF_decompress4X1_DCtx_wksp
 libarchive.so.13:HUF_decompress4X1_usingDTable
+libarchive.so.13:HUF_decompress4X1_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:HUF_decompress4X2
 libarchive.so.13:HUF_decompress4X2_DCtx
 libarchive.so.13:HUF_decompress4X2_DCtx_wksp
 libarchive.so.13:HUF_decompress4X2_usingDTable
+libarchive.so.13:HUF_decompress4X2_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:HUF_decompress4X_DCtx
 libarchive.so.13:HUF_decompress4X_hufOnly
 libarchive.so.13:HUF_decompress4X_hufOnly_wksp
@@ -2207,6 +2208,7 @@ libarchive.so.13:HUF_readDTableX1_wksp
 libarchive.so.13:HUF_readDTableX1_wksp_bmi2
 libarchive.so.13:HUF_readDTableX2
 libarchive.so.13:HUF_readDTableX2_wksp
+libarchive.so.13:HUF_readDTableX2_wksp_bmi2
 libarchive.so.13:HUF_readStats
 libarchive.so.13:HUF_readStats_wksp
 libarchive.so.13:HUF_selectDecoder
@@ -4519,6 +4521,8 @@ libarchive.so.13:_CONF_get_section_values
 libarchive.so.13:_CONF_get_string
 libarchive.so.13:_CONF_new_data
 libarchive.so.13:_CONF_new_section
+libarchive.so.13:_HUF_decompress4X1_usingDTable_internal_bmi2_asm_loop
+libarchive.so.13:_HUF_decompress4X2_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:__archive_check_child
 libarchive.so.13:__archive_check_magic
 libarchive.so.13:__archive_clean
@@ -6179,8 +6183,6 @@ libarchive.so.13:lzma_easy_decoder_memusage
 libarchive.so.13:lzma_easy_encoder
 libarchive.so.13:lzma_easy_encoder_memusage
 libarchive.so.13:lzma_end
-libarchive.so.13:lzma_erofs_decoder
-libarchive.so.13:lzma_erofs_encoder
 libarchive.so.13:lzma_file_info_decoder
 libarchive.so.13:lzma_filter_decoder_is_supported
 libarchive.so.13:lzma_filter_encoder_is_supported
@@ -6226,6 +6228,8 @@ libarchive.so.13:lzma_memlimit_get
 libarchive.so.13:lzma_memlimit_set
 libarchive.so.13:lzma_memusage
 libarchive.so.13:lzma_mf_is_supported
+libarchive.so.13:lzma_microlzma_decoder
+libarchive.so.13:lzma_microlzma_encoder
 libarchive.so.13:lzma_mode_is_supported
 libarchive.so.13:lzma_physmem
 libarchive.so.13:lzma_properties_decode

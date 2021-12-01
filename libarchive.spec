@@ -11,6 +11,9 @@ Source0  : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.2.ta
 Summary  : A library for handling streaming archive formats
 Group    : Development/Tools
 License  : BSD-2-Clause
+Requires: libarchive-bin = %{version}-%{release}
+Requires: libarchive-lib = %{version}-%{release}
+Requires: libarchive-man = %{version}-%{release}
 BuildRequires : acl-dev
 BuildRequires : acl-dev32
 BuildRequires : acl-staticdev
@@ -125,6 +128,51 @@ streaming archive formats, including most popular tar variants, several cpio
 formats, and both BSD and GNU ar variants. It can also write shar archives and
 read ISO9660 CDROM images and ZIP archives.
 
+%package bin
+Summary: bin components for the libarchive package.
+Group: Binaries
+
+%description bin
+bin components for the libarchive package.
+
+
+%package dev
+Summary: dev components for the libarchive package.
+Group: Development
+Requires: libarchive-lib = %{version}-%{release}
+Requires: libarchive-bin = %{version}-%{release}
+Provides: libarchive-devel = %{version}-%{release}
+Requires: libarchive = %{version}-%{release}
+
+%description dev
+dev components for the libarchive package.
+
+
+%package lib
+Summary: lib components for the libarchive package.
+Group: Libraries
+
+%description lib
+lib components for the libarchive package.
+
+
+%package man
+Summary: man components for the libarchive package.
+Group: Default
+
+%description man
+man components for the libarchive package.
+
+
+%package staticdev
+Summary: staticdev components for the libarchive package.
+Group: Default
+Requires: libarchive-dev = %{version}-%{release}
+
+%description staticdev
+staticdev components for the libarchive package.
+
+
 %prep
 %setup -q -n libarchive
 cd %{_builddir}/libarchive
@@ -135,7 +183,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638357113
+export SOURCE_DATE_EPOCH=1638357159
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -338,7 +386,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1638357113
+export SOURCE_DATE_EPOCH=1638357159
 rm -rf %{buildroot}
 %make_install
 ## install_append content
@@ -348,3 +396,76 @@ cp --archive %{buildroot}/usr/lib64/lib*.so* %{buildroot}/usr/lib64/haswell/ || 
 
 %files
 %defattr(-,root,root,-)
+
+%files bin
+%defattr(-,root,root,-)
+/usr/bin/bsdcat
+/usr/bin/bsdcpio
+/usr/bin/bsdtar
+
+%files dev
+%defattr(-,root,root,-)
+/usr/include/archive.h
+/usr/include/archive_entry.h
+/usr/lib64/haswell/libarchive.so
+/usr/lib64/libarchive.la
+/usr/lib64/libarchive.so
+/usr/lib64/pkgconfig/libarchive.pc
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/haswell/libarchive.so.13
+/usr/lib64/haswell/libarchive.so.13.5.3
+/usr/lib64/libarchive.so.13
+/usr/lib64/libarchive.so.13.5.3
+
+%files man
+%defattr(0644,root,root,0755)
+/usr/share/man/man1/bsdcat.1
+/usr/share/man/man1/bsdcpio.1
+/usr/share/man/man1/bsdtar.1
+/usr/share/man/man3/archive_entry.3
+/usr/share/man/man3/archive_entry_acl.3
+/usr/share/man/man3/archive_entry_linkify.3
+/usr/share/man/man3/archive_entry_misc.3
+/usr/share/man/man3/archive_entry_paths.3
+/usr/share/man/man3/archive_entry_perms.3
+/usr/share/man/man3/archive_entry_stat.3
+/usr/share/man/man3/archive_entry_time.3
+/usr/share/man/man3/archive_read.3
+/usr/share/man/man3/archive_read_add_passphrase.3
+/usr/share/man/man3/archive_read_data.3
+/usr/share/man/man3/archive_read_disk.3
+/usr/share/man/man3/archive_read_extract.3
+/usr/share/man/man3/archive_read_filter.3
+/usr/share/man/man3/archive_read_format.3
+/usr/share/man/man3/archive_read_free.3
+/usr/share/man/man3/archive_read_header.3
+/usr/share/man/man3/archive_read_new.3
+/usr/share/man/man3/archive_read_open.3
+/usr/share/man/man3/archive_read_set_options.3
+/usr/share/man/man3/archive_util.3
+/usr/share/man/man3/archive_write.3
+/usr/share/man/man3/archive_write_blocksize.3
+/usr/share/man/man3/archive_write_data.3
+/usr/share/man/man3/archive_write_disk.3
+/usr/share/man/man3/archive_write_filter.3
+/usr/share/man/man3/archive_write_finish_entry.3
+/usr/share/man/man3/archive_write_format.3
+/usr/share/man/man3/archive_write_free.3
+/usr/share/man/man3/archive_write_header.3
+/usr/share/man/man3/archive_write_new.3
+/usr/share/man/man3/archive_write_open.3
+/usr/share/man/man3/archive_write_set_options.3
+/usr/share/man/man3/archive_write_set_passphrase.3
+/usr/share/man/man3/libarchive.3
+/usr/share/man/man3/libarchive_changes.3
+/usr/share/man/man3/libarchive_internals.3
+/usr/share/man/man5/cpio.5
+/usr/share/man/man5/libarchive-formats.5
+/usr/share/man/man5/mtree.5
+/usr/share/man/man5/tar.5
+
+%files staticdev
+%defattr(-,root,root,-)
+/usr/lib64/libarchive.a
