@@ -5,7 +5,7 @@
 %define keepstatic 1
 Name     : libarchive
 Version  : 3.5.2
-Release  : 402
+Release  : 404
 URL      : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.2.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.2.tar.gz
 Summary  : A library for handling streaming archive formats
@@ -135,7 +135,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1638356124
+export SOURCE_DATE_EPOCH=1638357113
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -338,7 +338,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1638356124
+export SOURCE_DATE_EPOCH=1638357113
 rm -rf %{buildroot}
 %make_install
 ## install_append content
