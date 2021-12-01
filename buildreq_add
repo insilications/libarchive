@@ -34,8 +34,8 @@ findutils
 flex
 gcc
 gcc-dev
-gcc-libs-math
 gcc-libstdc++32
+gcc-libs-math
 gcc-libubsan
 gcc-locale
 gdb
