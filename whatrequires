@@ -28,6 +28,7 @@ gvfs
 icecream
 libarchive-c
 libarchive-dev
+libarchive-staticdev
 nautilus
 osinfo-db-tools
 ostree
