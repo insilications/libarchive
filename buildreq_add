@@ -92,7 +92,7 @@ zlib-dev
 zlib-dev32
 zlib-staticdev
 zlib-staticdev32
+zstd
 zstd-dev
 zstd-dev32
 zstd-staticdev
-zstd-staticdev32
