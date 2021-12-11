@@ -3,7 +3,6 @@
 --with-bz2lib
 --with-zstd
 --with-lzma
---with-libxml2
 --with-expat
 --with-lz4
 --with-xml2

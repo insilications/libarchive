@@ -96,3 +96,5 @@ zstd
 zstd-dev
 zstd-dev32
 zstd-staticdev
+xattr
+xattr-dev
