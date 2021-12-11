@@ -5,26 +5,20 @@
 %define keepstatic 1
 Name     : libarchive
 Version  : 3.5.2
-Release  : 406
+Release  : 501
 URL      : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.2.tar.gz
 Source0  : file:///aot/build/clearlinux/packages/libarchive/libarchive-v3.5.2.tar.gz
 Summary  : A library for handling streaming archive formats
 Group    : Development/Tools
 License  : BSD-2-Clause
-Requires: libarchive-bin = %{version}-%{release}
-Requires: libarchive-lib = %{version}-%{release}
-Requires: libarchive-man = %{version}-%{release}
 BuildRequires : acl-dev
-BuildRequires : acl-dev32
 BuildRequires : acl-staticdev
-BuildRequires : acl-staticdev32
 BuildRequires : attr-dev
 BuildRequires : binutils-dev
 BuildRequires : binutils-extras
 BuildRequires : bison
 BuildRequires : buildreq-cmake
 BuildRequires : bzip2-dev
-BuildRequires : bzip2-dev32
 BuildRequires : bzip2-staticdev
 BuildRequires : dbus-dev
 BuildRequires : dejagnu
@@ -34,9 +28,7 @@ BuildRequires : doxygen
 BuildRequires : e2fsprogs-dev
 BuildRequires : elfutils-dev
 BuildRequires : expat-dev
-BuildRequires : expat-dev32
 BuildRequires : expat-staticdev
-BuildRequires : expat-staticdev32
 BuildRequires : expect
 BuildRequires : fakechroot
 BuildRequires : fakechroot-dev
@@ -47,7 +39,6 @@ BuildRequires : flex
 BuildRequires : gcc
 BuildRequires : gcc-dev
 BuildRequires : gcc-libs-math
-BuildRequires : gcc-libstdc++32
 BuildRequires : gcc-libubsan
 BuildRequires : gcc-locale
 BuildRequires : gdb
@@ -78,16 +69,11 @@ BuildRequires : lrzip
 BuildRequires : lz4-dev
 BuildRequires : lz4-staticdev
 BuildRequires : lzo-dev
-BuildRequires : lzo-dev32
 BuildRequires : lzo-staticdev
-BuildRequires : lzo-staticdev32
 BuildRequires : m4
 BuildRequires : nettle-dev
-BuildRequires : nettle-dev32
 BuildRequires : openssl-dev
-BuildRequires : openssl-dev32
 BuildRequires : openssl-staticdev
-BuildRequires : openssl-staticdev32
 BuildRequires : pkg-config-dev
 BuildRequires : pkgconfig(32bzip2)
 BuildRequires : pkgconfig(32hogweed)
@@ -104,19 +90,15 @@ BuildRequires : python3-dev
 BuildRequires : python3-staticdev
 BuildRequires : sqlite-autoconf
 BuildRequires : unzip
+BuildRequires : xattr
 BuildRequires : xz-dev
-BuildRequires : xz-dev32
 BuildRequires : xz-staticdev
-BuildRequires : xz-staticdev32
 BuildRequires : zip
 BuildRequires : zlib
 BuildRequires : zlib-dev
-BuildRequires : zlib-dev32
 BuildRequires : zlib-staticdev
-BuildRequires : zlib-staticdev32
 BuildRequires : zstd
 BuildRequires : zstd-dev
-BuildRequires : zstd-dev32
 BuildRequires : zstd-staticdev
 # Suppress stripping binaries
 %define __strip /bin/true
@@ -128,51 +110,6 @@ streaming archive formats, including most popular tar variants, several cpio
 formats, and both BSD and GNU ar variants. It can also write shar archives and
 read ISO9660 CDROM images and ZIP archives.
 
-%package bin
-Summary: bin components for the libarchive package.
-Group: Binaries
-
-%description bin
-bin components for the libarchive package.
-
-
-%package dev
-Summary: dev components for the libarchive package.
-Group: Development
-Requires: libarchive-lib = %{version}-%{release}
-Requires: libarchive-bin = %{version}-%{release}
-Provides: libarchive-devel = %{version}-%{release}
-Requires: libarchive = %{version}-%{release}
-
-%description dev
-dev components for the libarchive package.
-
-
-%package lib
-Summary: lib components for the libarchive package.
-Group: Libraries
-
-%description lib
-lib components for the libarchive package.
-
-
-%package man
-Summary: man components for the libarchive package.
-Group: Default
-
-%description man
-man components for the libarchive package.
-
-
-%package staticdev
-Summary: staticdev components for the libarchive package.
-Group: Default
-Requires: libarchive-dev = %{version}-%{release}
-
-%description staticdev
-staticdev components for the libarchive package.
-
-
 %prep
 %setup -q -n libarchive
 cd %{_builddir}/libarchive
@@ -183,7 +120,7 @@ unset https_proxy
 unset no_proxy
 export SSL_CERT_FILE=/var/cache/ca-certs/anchors/ca-certificates.crt
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639150021
+export SOURCE_DATE_EPOCH=1639488582
 export GCC_IGNORE_WERROR=1
 ## altflags_pgo content
 ## pgo generate
@@ -285,7 +222,6 @@ export LIBS="${LIBS_GENERATE}"
 --with-bz2lib \
 --with-zstd \
 --with-lzma \
---with-libxml2 \
 --with-expat \
 --with-lz4 \
 --with-xml2 \
@@ -341,7 +277,8 @@ export GTK_RC_FILES=/etc/gtk/gtkrc
 export FONTCONFIG_PATH=/usr/share/defaults/fonts
 export LD_LIBRARY_PATH="/builddir/build/BUILD/libarchive/.libs:/builddir/build/BUILD/libarchive:/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
 export LIBRARY_PATH="/builddir/build/BUILD/libarchive/.libs:/builddir/build/BUILD/libarchive:/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
-make VERBOSE=1 V=1 -j16 check || :
+make VERBOSE=1 V=1 -j1 check || :
+exit 1
 export LD_LIBRARY_PATH="/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
 export LIBRARY_PATH="/usr/nvidia/lib64:/usr/nvidia/lib64/vdpau:/usr/nvidia/lib64/xorg/modules/drivers:/usr/nvidia/lib64/xorg/modules/extensions:/usr/local/cuda/lib64:/usr/lib64/haswell:/usr/lib64/haswell/pulseaudio:/usr/lib64/haswell/alsa-lib:/usr/lib64/haswell/gstreamer-1.0:/usr/lib64/haswell/pipewire-0.3:/usr/lib64/haswell/spa-0.2:/usr/lib64/dri:/usr/lib64/chromium:/usr/lib64:/usr/lib64/pulseaudio:/usr/lib64/alsa-lib:/usr/lib64/gstreamer-1.0:/usr/lib64/pipewire-0.3:/usr/lib64/spa-0.2:/usr/lib:/aot/intel/oneapi/compiler/latest/linux/compiler/lib/intel64_lin:/aot/intel/oneapi/compiler/latest/linux/lib:/aot/intel/oneapi/mkl/latest/lib/intel64:/aot/intel/oneapi/tbb/latest/lib/intel64/gcc4.8:/usr/share:/usr/lib64/wine:/usr/nvidia/lib32:/usr/nvidia/lib32/vdpau:/usr/lib32:/usr/lib32/wine"
 ## profile_payload end
@@ -362,7 +299,6 @@ export LIBS="${LIBS_USE}"
 --with-bz2lib \
 --with-zstd \
 --with-lzma \
---with-libxml2 \
 --with-expat \
 --with-lz4 \
 --with-xml2 \
@@ -393,7 +329,7 @@ fi
 
 
 %install
-export SOURCE_DATE_EPOCH=1639150021
+export SOURCE_DATE_EPOCH=1639488582
 rm -rf %{buildroot}
 %make_install
 ## install_append content
@@ -403,76 +339,3 @@ cp --archive %{buildroot}/usr/lib64/lib*.so* %{buildroot}/usr/lib64/haswell/ || 
 
 %files
 %defattr(-,root,root,-)
-
-%files bin
-%defattr(-,root,root,-)
-/usr/bin/bsdcat
-/usr/bin/bsdcpio
-/usr/bin/bsdtar
-
-%files dev
-%defattr(-,root,root,-)
-/usr/include/archive.h
-/usr/include/archive_entry.h
-/usr/lib64/haswell/libarchive.so
-/usr/lib64/libarchive.la
-/usr/lib64/libarchive.so
-/usr/lib64/pkgconfig/libarchive.pc
-
-%files lib
-%defattr(-,root,root,-)
-/usr/lib64/haswell/libarchive.so.13
-/usr/lib64/haswell/libarchive.so.13.5.3
-/usr/lib64/libarchive.so.13
-/usr/lib64/libarchive.so.13.5.3
-
-%files man
-%defattr(0644,root,root,0755)
-/usr/share/man/man1/bsdcat.1
-/usr/share/man/man1/bsdcpio.1
-/usr/share/man/man1/bsdtar.1
-/usr/share/man/man3/archive_entry.3
-/usr/share/man/man3/archive_entry_acl.3
-/usr/share/man/man3/archive_entry_linkify.3
-/usr/share/man/man3/archive_entry_misc.3
-/usr/share/man/man3/archive_entry_paths.3
-/usr/share/man/man3/archive_entry_perms.3
-/usr/share/man/man3/archive_entry_stat.3
-/usr/share/man/man3/archive_entry_time.3
-/usr/share/man/man3/archive_read.3
-/usr/share/man/man3/archive_read_add_passphrase.3
-/usr/share/man/man3/archive_read_data.3
-/usr/share/man/man3/archive_read_disk.3
-/usr/share/man/man3/archive_read_extract.3
-/usr/share/man/man3/archive_read_filter.3
-/usr/share/man/man3/archive_read_format.3
-/usr/share/man/man3/archive_read_free.3
-/usr/share/man/man3/archive_read_header.3
-/usr/share/man/man3/archive_read_new.3
-/usr/share/man/man3/archive_read_open.3
-/usr/share/man/man3/archive_read_set_options.3
-/usr/share/man/man3/archive_util.3
-/usr/share/man/man3/archive_write.3
-/usr/share/man/man3/archive_write_blocksize.3
-/usr/share/man/man3/archive_write_data.3
-/usr/share/man/man3/archive_write_disk.3
-/usr/share/man/man3/archive_write_filter.3
-/usr/share/man/man3/archive_write_finish_entry.3
-/usr/share/man/man3/archive_write_format.3
-/usr/share/man/man3/archive_write_free.3
-/usr/share/man/man3/archive_write_header.3
-/usr/share/man/man3/archive_write_new.3
-/usr/share/man/man3/archive_write_open.3
-/usr/share/man/man3/archive_write_set_options.3
-/usr/share/man/man3/archive_write_set_passphrase.3
-/usr/share/man/man3/libarchive.3
-/usr/share/man/man3/libarchive_changes.3
-/usr/share/man/man3/libarchive_internals.3
-/usr/share/man/man5/cpio.5
-/usr/share/man/man5/libarchive-formats.5
-/usr/share/man/man5/mtree.5
-/usr/share/man/man5/tar.5
-
-%files staticdev
-%defattr(-,root,root,-)
-/usr/lib64/libarchive.a
