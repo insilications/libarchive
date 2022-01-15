@@ -23,7 +23,6 @@ expat-staticdev
 expect
 fakechroot
 fakechroot-dev
-fakechroot-staticdev
 file-dev
 findutils
 flex
