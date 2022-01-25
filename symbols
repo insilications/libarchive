@@ -2185,12 +2185,10 @@ libarchive.so.13:HUF_decompress4X1
 libarchive.so.13:HUF_decompress4X1_DCtx
 libarchive.so.13:HUF_decompress4X1_DCtx_wksp
 libarchive.so.13:HUF_decompress4X1_usingDTable
-libarchive.so.13:HUF_decompress4X1_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:HUF_decompress4X2
 libarchive.so.13:HUF_decompress4X2_DCtx
 libarchive.so.13:HUF_decompress4X2_DCtx_wksp
 libarchive.so.13:HUF_decompress4X2_usingDTable
-libarchive.so.13:HUF_decompress4X2_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:HUF_decompress4X_DCtx
 libarchive.so.13:HUF_decompress4X_hufOnly
 libarchive.so.13:HUF_decompress4X_hufOnly_wksp
@@ -4521,8 +4519,6 @@ libarchive.so.13:_CONF_get_section_values
 libarchive.so.13:_CONF_get_string
 libarchive.so.13:_CONF_new_data
 libarchive.so.13:_CONF_new_section
-libarchive.so.13:_HUF_decompress4X1_usingDTable_internal_bmi2_asm_loop
-libarchive.so.13:_HUF_decompress4X2_usingDTable_internal_bmi2_asm_loop
 libarchive.so.13:__archive_check_child
 libarchive.so.13:__archive_check_magic
 libarchive.so.13:__archive_clean
@@ -4647,12 +4643,6 @@ libarchive.so.13:_lzo1c_store_run
 libarchive.so.13:_lzo_config_check
 libarchive.so.13:_lzo_version_date
 libarchive.so.13:_lzo_version_string
-libarchive.so.13:_tr_align
-libarchive.so.13:_tr_flush_bits
-libarchive.so.13:_tr_flush_block
-libarchive.so.13:_tr_init
-libarchive.so.13:_tr_stored_block
-libarchive.so.13:_tr_tally
 libarchive.so.13:a2d_ASN1_OBJECT
 libarchive.so.13:a2i_ASN1_ENUMERATED
 libarchive.so.13:a2i_ASN1_INTEGER
@@ -5238,7 +5228,6 @@ libarchive.so.13:b2i_PrivateKey
 libarchive.so.13:b2i_PrivateKey_bio
 libarchive.so.13:b2i_PublicKey
 libarchive.so.13:b2i_PublicKey_bio
-libarchive.so.13:bi_windup
 libarchive.so.13:bio_cleanup
 libarchive.so.13:bio_free_ex_data
 libarchive.so.13:bio_sock_cleanup_int
@@ -5362,10 +5351,10 @@ libarchive.so.13:conf_ssl_name_find
 libarchive.so.13:crc32
 libarchive.so.13:crc32_combine
 libarchive.so.13:crc32_combine64
+libarchive.so.13:crc32_combine_gen
+libarchive.so.13:crc32_combine_gen64
+libarchive.so.13:crc32_combine_op
 libarchive.so.13:crc32_z
-libarchive.so.13:crc_fold_512to32
-libarchive.so.13:crc_fold_copy
-libarchive.so.13:crc_fold_init
 libarchive.so.13:crypto_cleanup_all_ex_data_int
 libarchive.so.13:curve448_base_double_scalarmul_non_secret
 libarchive.so.13:curve448_point_decode_like_eddsa_and_mul_by_ratio
@@ -5598,7 +5587,6 @@ libarchive.so.13:deflateResetKeep
 libarchive.so.13:deflateSetDictionary
 libarchive.so.13:deflateSetHeader
 libarchive.so.13:deflateTune
-libarchive.so.13:deflate_medium
 libarchive.so.13:divbwt
 libarchive.so.13:divsufsort
 libarchive.so.13:do_engine_lock_init_ossl_
@@ -5725,6 +5713,7 @@ libarchive.so.13:ecp_nistz256_to_mont
 libarchive.so.13:elementDecl
 libarchive.so.13:endDocument
 libarchive.so.13:endElement
+libarchive.so.13:engine_add_dynamic_id
 libarchive.so.13:engine_cleanup_add_first
 libarchive.so.13:engine_cleanup_add_last
 libarchive.so.13:engine_cleanup_int
@@ -5737,6 +5726,7 @@ libarchive.so.13:engine_load_padlock_int
 libarchive.so.13:engine_load_rdrand_int
 libarchive.so.13:engine_pkey_asn1_meths_free
 libarchive.so.13:engine_pkey_meths_free
+libarchive.so.13:engine_remove_dynamic_id
 libarchive.so.13:engine_set_all_null
 libarchive.so.13:engine_table_cleanup
 libarchive.so.13:engine_table_doall
@@ -5759,8 +5749,6 @@ libarchive.so.13:evp_encode_ctx_set_flags
 libarchive.so.13:evp_pkey_set_cb_translate
 libarchive.so.13:externalSubset
 libarchive.so.13:fcrypt_body
-libarchive.so.13:fill_window
-libarchive.so.13:flush_pending
 libarchive.so.13:gcm_ghash_4bit
 libarchive.so.13:gcm_ghash_avx
 libarchive.so.13:gcm_ghash_clmul
@@ -5790,7 +5778,6 @@ libarchive.so.13:gf_sqr
 libarchive.so.13:gf_strong_reduce
 libarchive.so.13:gf_sub
 libarchive.so.13:globalNamespace
-libarchive.so.13:gz_error
 libarchive.so.13:gzbuffer
 libarchive.so.13:gzclearerr
 libarchive.so.13:gzclose
@@ -6138,8 +6125,6 @@ libarchive.so.13:inflateSync
 libarchive.so.13:inflateSyncPoint
 libarchive.so.13:inflateUndermine
 libarchive.so.13:inflateValidate
-libarchive.so.13:inflate_fast
-libarchive.so.13:inflate_table
 libarchive.so.13:initGenericErrorDefaultFunc
 libarchive.so.13:initdocbDefaultSAXHandler
 libarchive.so.13:inithtmlDefaultSAXHandler
@@ -6156,7 +6141,6 @@ libarchive.so.13:level_add_node
 libarchive.so.13:level_find_node
 libarchive.so.13:libxml_domnode_binary_insertion_sort
 libarchive.so.13:libxml_domnode_tim_sort
-libarchive.so.13:longest_match
 libarchive.so.13:lzma_alone_decoder
 libarchive.so.13:lzma_alone_encoder
 libarchive.so.13:lzma_auto_decoder
@@ -6496,7 +6480,6 @@ libarchive.so.13:sha256_multi_block
 libarchive.so.13:sha512_224_init
 libarchive.so.13:sha512_256_init
 libarchive.so.13:sha512_block_data_order
-libarchive.so.13:slide_hash_sse
 libarchive.so.13:sm2_ciphertext_size
 libarchive.so.13:sm2_compute_z_digest
 libarchive.so.13:sm2_decrypt
@@ -6547,7 +6530,6 @@ libarchive.so.13:x509_likely_issued
 libarchive.so.13:x509_set1_time
 libarchive.so.13:x509_signing_allowed
 libarchive.so.13:x509v3_add_len_value_uchar
-libarchive.so.13:x86_check_features
 libarchive.so.13:xlinkGetDefaultDetect
 libarchive.so.13:xlinkGetDefaultHandler
 libarchive.so.13:xlinkIsLink
@@ -8087,7 +8069,6 @@ libarchive.so.13:xmlXPtrWrapLocationSet
 libarchive.so.13:xor128_decrypt_n_pad
 libarchive.so.13:xor128_encrypt_n_pad
 libarchive.so.13:zError
-libarchive.so.13:zcalloc
-libarchive.so.13:zcfree
 libarchive.so.13:zlibCompileFlags
 libarchive.so.13:zlibVersion
+libarchive.so.13:zlibng_version
